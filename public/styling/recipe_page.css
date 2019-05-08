@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#main_content{
+  width: 88%;
+  float: right;
+  position: relative;
+  background-color: #ECEEF1;
+  height: 100vh;
+}
+
+#notification{
+  display: none;
+  margin: 3% 5% 0 5%;
+  padding: .5rem;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+}
+
+#message{
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 25px;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: capitalize;
+  border:0.5px solid #ef5350;
+  border-radius: 5px;
+  padding: 1%;
+}
+
+i.material-icons.notification {
+  font-size: 40px;
+  float: left;
+  padding: 4px;
+  color: #ef5350;
+}
+
+.flexbox{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 3% 5% 0 5%;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+}
+
+.item_block{
+  display: flex;
+  width: 160px;
+  height: 85px;
+  margin: 1.5%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 4px 0px;
+  background-color: none;
+  border-radius: 2%;
+}
+
+.item_block:nth-child(3n+1) {
+  background-color: #3aaf85;
+}
+.item_block:nth-child(3n+2) {
+  background-color:#26A69A;
+}
+.item_block:nth-child(3n) {
+  background-color:#AED581;
+}
+
+.item_block:hover .button {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.item_block:hover .item_label {
+  width: 60%;
+  height: 85px;
+  word-wrap: break-word;
+  font-size: 0.5rem;
+  background-color: rgba(255,255,255,0.4);
+}
+
+.item_label{
+  font-family: 'Open Sans', sans-serif;
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 400;
+  width: 100%;
+  height: 100px;
+  color: #484b4c;
+  transition: width 0.5s;
+  padding-top: 20%;
+}
+
+.button{
+  display: none;
+  outline: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.button.edit {
+  background-color: #747474;
+  height: 85px;
+  width: 20%;
+}
+
+.button.delete {
+  background-color: #EC7063;
+  height: 85px;
+  width: 20%;
+}
+.material-icons.create{
+  color: white;
+}
+.material-icons.create:hover{
+  color: rgba(0,0,0,0.4);
+}
+.material-icons.trash{
+  color: white;
+}
+.material-icons.trash:hover{
+  color: rgba(0,0,0,0.4);
+}

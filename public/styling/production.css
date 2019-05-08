@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+#main_content{
+  width: 88%;
+  float: right;
+  position: relative;
+  height: 100vh;
+  background-color: #ECEEF1;
+}
+
+#open_form{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  font-size: 2rem;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  border:none;
+  float: right;
+  margin: 10px 10px 0 0;
+  box-shadow: rgba(0, 0, 0, 0.30) 0px 3px 3px 0px;
+}
+
+#open_form:hover{
+  width: 65px;
+  height:65px;
+  background-color: rgba(76, 175, 80, 0.80);
+  box-shadow: rgba(76, 175, 80, 0.30) 0px 3px 3px 0px;
+  cursor: pointer;
+}
+
+#table{
+  width: 90%;
+  margin: auto;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+  padding: 2%;
+}
+
+#date_range{
+  width: 90%;
+  margin-bottom:10px;
+}
+
+#date_range>input{
+  padding: 5px;
+}
+
+#myTable_wrapper{
+  width: 100%;
+  margin: auto;
+  font-size: 0.8rem;
+}
+
+#myTable{
+  padding: 1%;
+  margin: 0 auto 1% auto;
+}
+
+thead{
+  font-family: "Quicksand", sans-serif;
+  background-color: #E3E5E8;
+  text-align: left;
+}
+
+td.details-control {
+  background: url('/images/add_circle.svg') no-repeat center center;
+  background-size: 25px 25px;
+  cursor: pointer;
+}
+
+tr.shown td.details-control {
+  background: url('/images/remove_circle.svg') no-repeat center center;
+  background-size: 25px 25px;
+}
+
+#chart{
+  width: 80%;
+  margin: 2% auto;
+}
+
+.chart1{
+  background-color: white;
+  padding: 2%;
+  width: 400px;
+  height: 250px;
+  display: inline-block;
+  border-radius: 3px;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+}
+
+#chart:after {
+    content: "";
+    clear: both;
+    display: table;
+}

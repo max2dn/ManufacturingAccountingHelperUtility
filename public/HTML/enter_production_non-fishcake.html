@@ -1,0 +1,33 @@
+<fieldset class="date">
+  <div class="flex">
+    <div class="date">
+        <label for="date_picker"> Production Date </label>
+        <input id='production_date' class='form date_picker' type="date" placeholder="Select Date">
+    </div>
+
+    <div class="date">
+        <label for="date_picker"> Expiration Date </label>
+        <input id='expiration_date' class='form date_picker' type="date" placeholder="Select Date">
+    </div>
+  </div>
+</fieldset>
+
+<div class="divider"></div>
+
+<fieldset class="ingredients">
+    <label for="recipe_table"> Ingredients </label>
+    <table id="recipe_table">
+      <tbody>
+      </tbody>
+    </table>
+</fieldset>
+
+<fieldset class="production_quantity">
+    <label for="produced"> Quantity Produced </label>
+    <input id="produced" name="quantity_produced" class="result form" type="number" min="0" placeholder="Pieces or Pounds">
+</fieldset>
+
+<fieldset class="submit_div">
+      <button id="submit_button" class="form_buttons" type="submit"> ENTER </button>
+      <button id="form_reset_button" class="form_buttons" type="button" > CLEAR </button>
+</fieldset>

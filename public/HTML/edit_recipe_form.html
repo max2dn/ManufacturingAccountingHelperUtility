@@ -1,0 +1,47 @@
+<div id="edit_recipe_modal">
+  <link href="/styles/edit_recipe.css" rel='stylesheet' type="text/css">
+  <button id="load_items" onclick=populateProductDropdown()>Load Items</button>
+  <form id="edit_form">
+
+    <div id='form_header'>
+      <span id="close_form"> &times;</span>
+      <p id="form_name"><i id="edit" class="material-icons">create</i><strong>EDIT</strong> RECIPE </p>
+    </div>
+
+    <div id='form_content'>
+
+      <fieldset>
+        <label for="product"> Finished Good </label>
+        <p id="product"></p>
+      </fieldset>
+
+      <div class="divider"></div>
+
+      <fieldset>
+        <label> Item Type </label>
+        <span class="item_type" style:"display:inline"> <input type="radio" id="fishcake_radio" name="item_type" value="fishcake" > Fishcake </span>
+        <span class="item_type" style:"display:inline"> <input type="radio" id="non-fishcake_radio" name="item_type" value="non-fishcake" > Non-Fishcake </span>
+      </fieldset>
+
+      <div class="divider"></div>
+
+      <fieldset>
+        <label for="product_unit"> Unit of Measure </label>
+        <p id="product_unit"></p>
+      </fieldset>
+
+      <div class="divider"></div>
+
+      <fieldset>
+        <label> Ingredients <span> <i id="add_ingredient" class="material-icons">add_circle</i> <span></label>
+        <table id="ingredient_table">
+        </table>
+      </fieldset>
+
+      <fieldset>
+        <button id='update_button' type='submit'> UPDATE </button>
+      </fieldset>
+
+    </div>
+  </form>
+</div>

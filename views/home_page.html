@@ -1,0 +1,77 @@
+<!DOCTYPEHTML>
+<html>
+
+<head>
+  <title> Home </title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles/home_page.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/scripts/home_page.js"></script>
+  <script src="/scripts/utils.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
+</head>
+
+<body>
+  <nav id="navigation"></nav>
+
+  <div id="main_content">
+    <div id="notification_modal">
+      <div id="notification">
+        <p id="notification_title"> <i class="material-icons">notification_important</i> Notification <span id="close_form"> &times;</span> </p>
+      </div>
+    </div>
+
+    <div id="chart" class='chart tabcontent finished_goods'>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <div id="chart2" class='chart tabcontent raw_material' >
+        <canvas id="myChart2"></canvas>
+    </div>
+
+    <div id="chart3" class='chart tabcontent supplies' >
+        <canvas id="myChart3"></canvas>
+    </div>
+
+    <div id="inventory_dashboard">
+      <div class="tab_header">
+        <button class="tablink" name="finished_goods" id="defaultOpen"> Finished Goods </button>
+        <button class="tablink" name="raw_material"> Raw Materials </button>
+        <button class="tablink" name="supplies"> Supplies </button>
+      </div>
+
+      <div class="tab_body">
+        <div id="finished_goods" class="tabcontent finished_goods">
+          <table id="finished_good_table">
+            <tr>
+              <th> Item </th>
+              <th> Last Cost </th>
+              <th> Quantity </th>
+            </tr>
+          </table>
+        </div>
+        <div id="raw_material" class="tabcontent raw_material">
+          <table id="raw_ingredient_table">
+            <tr>
+              <th> Item </th>
+              <th> Last Cost </th>
+              <th> Quantity</th>
+            </tr>
+          </table>
+        </div>
+        <div id="supplies" class="tabcontent supplies">
+          <table id="supplies_table">
+            <tr>
+              <th> Item </th>
+              <th> Last Cost </th>
+              <th> Quantity</th>
+            </tr>
+          </table>
+        </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

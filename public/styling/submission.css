@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+#modal{
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width:100vw;
+  top:0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  overflow: scroll;
+}
+
+#submission{
+  background-color: white;
+  position: absolute;
+  width:35%;
+  padding: 3% 0;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.2);
+}
+
+h1{
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+#results{
+  width: 60%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+#results > td{
+  font-size: 1.5rem;
+  padding: 1%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.material-icons.check{
+  color: #2CA01C;
+  vertical-align: bottom;
+}
+
+.material-icons.highlight_off{
+  color: red;
+  vertical-align: bottom;
+}

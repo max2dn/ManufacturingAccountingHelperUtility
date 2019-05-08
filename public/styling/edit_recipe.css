@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+#edit_recipe_modal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width:100vw;
+  top:0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  overflow: scroll;
+}
+#edit_form {
+  width:40%;
+  margin: 1% auto;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.2);
+}
+
+/* Header */
+#form_header{
+  background-color: white;
+  padding: 1% 3% 1% 6%;
+}
+#form_name {
+  color: #3c6bbe;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-top: 3%;
+}
+#edit{
+  background-color: #7a9fdd;
+  border-radius: 50%;
+  color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
+  font-size: 30px;
+  padding: 6px;
+  margin-right: 6px;
+  position: relative;
+  vertical-align: middle;
+  top: -1px;
+}
+#close_form{
+  color: grey;
+  float: right;
+  font-size: 1.5rem;
+  position: relative;
+}
+#close_form:hover,#close_form:focus{
+  color:#3c6bbe;
+  cursor:pointer;
+}
+
+/* Body */
+#form_content {
+  width: 100%;
+  padding: 2%;
+  background-color:white;
+}
+fieldset{
+  width: 90%;
+  margin: 0 auto 0 auto;
+  padding: 1rem 0;
+  border: none;
+}
+.divider{
+  border-top:0.5px dashed #969ca3;
+  height:1px;
+  margin:auto;
+  width: 95%;
+}
+fieldset>label{
+  display: block;
+  font-size: 0.8rem;
+  color:#4A4D55;
+  letter-spacing: 0.5px;
+  margin: 0px 0 8px 0;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+input:placeholder {
+  opacity: 0.6;
+  letter-spacing: 0.3px;
+}
+#product{
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgba(60,107,190,0.5);
+  letter-spacing: 0.8px;
+}
+fieldset>span{
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  margin: 0 20px 0 5px;
+  color: #3c6bbe;
+}
+fieldset>select {
+  width: 100%;
+  height: 32px;
+  font-size: 12px;
+}
+.item_type{
+  text-transform: capitalize;
+}
+#product_unit{
+  text-transform: capitalize;
+  color: rgba(60,107,190,0.5);
+}
+
+/* Ingredient Table */
+#ingredient_table{
+  margin: auto;
+  width: 80%;
+  margin-bottom: 4%;
+  border-collapse: collapse;
+}
+td{
+  height:40px;
+  font-size: 0.75rem;
+  padding: 2px 0px 2px 10px;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+.ingredient,.existing{
+  text-align: left;
+  color:#3c6bbe;
+}
+.delete_td{
+  text-align: center;
+  margin-right: 5px;
+}
+.select_item{
+  background-color: white;
+  margin-left: -5px;
+  height: 32px;
+  border: 1px solid #e6e6e6;
+  color:#484b4c;
+}
+
+/* Add & Delete button styling */
+#add_ingredient{
+  font-size: 30px;
+  color: #3c6bbe;
+  float:right;
+}
+#add_ingredient:hover{
+  color:#234277;
+}
+
+.delete_button{
+  display: relative;
+  vertical-align: middle;
+  color: #F66264;
+  top: -1px;
+}
+.delete_button:hover{
+  cursor: pointer;
+  color:#c14b4d;
+}
+
+/* Update button styling */
+#update_button {
+  padding: 1em;
+  border-radius: 25px;
+  color: white;
+  width: 40%;
+  background-color: #3c6bbe;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px 0px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  margin: auto;
+}
+#update_button:hover {
+  background-color: white;
+  color: #3c6bbe;
+  border: 1px solid #3c6bbe;
+  transition: 0.2s;
+  cursor: pointer;
+}

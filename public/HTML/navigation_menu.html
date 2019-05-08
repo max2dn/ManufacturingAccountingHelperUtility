@@ -1,0 +1,97 @@
+<!DOCTYPEHTML>
+
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Quicksand:300,400,500,700');
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  #header{
+    width:100%;
+    height:70px;
+    background-color: #535e63;
+    position: sticky;
+    z-index: 1;
+  }
+
+  #logo{
+    height: 80%;
+    margin-left: 30px;
+    float: left;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #logout_button{
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: inherit;
+    color:white;
+    border: none;
+    line-height: 70px;
+    height: 70px;
+    width: 100px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    float: right;
+    text-align: center;
+  }
+
+  #logout_button:hover{
+    background-color: #EC7063;
+  }
+
+  #side_menu{
+    height:100%;
+    width:12%;
+    position:fixed;
+    float: left;
+    top: 0;
+    left:0;
+    background-color:#ECEEF1;
+    overflow-x: hidden;
+    padding-top: 150px;
+  }
+
+  a.sidebar {
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
+    width: 100%;
+    display:inline-block;
+    color:#393A3D;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 10% 10% 10% 20%;
+  }
+  a:hover {
+    background-color: #cfd8dc;
+  }
+
+</style>
+
+<div id="header">
+    <img id="logo" alt="logo" src="/images/okuhara_logo.svg">
+    <a href="/logout" id="logout_button">sign out</a>
+</div>
+
+<div id='side_menu'>
+    <a class="sidebar" href="/homepage">Home</a>
+    <a class="sidebar" href="/productionpage">Production</a>
+    <a class="sidebar" href="/recipepage">Recipe</a>
+    <a class="sidebar" href="/settingspage">Settings</a>
+</div>
+
+<script>
+
+  $('#logout_button').on('click',function(){
+
+  })
+
+</script>

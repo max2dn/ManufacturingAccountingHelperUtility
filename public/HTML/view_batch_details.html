@@ -1,0 +1,184 @@
+<style>
+#modal{
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width:100vw;
+  top:0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  overflow: scroll;
+}
+#batch{
+  width:40%;
+  margin:  2% auto;
+  padding: 2% 2% 2% 2%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.2);
+  background-color: white;
+  display: absolute;
+}
+
+#close_form{
+  color: grey;
+  float: right;
+  font-size: 1.5rem;
+  position: relative;
+  top:-20px;
+  right: -10px;
+}
+#close_form:hover,#close_form:focus{
+  color:#26A69A;
+  cursor:pointer;
+}
+
+#product{
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin: 5% auto ;
+  color: #26A69A;
+  text-align: center;
+  width: 100%;
+}
+
+#batch_number{
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  float: left;
+  color: grey;
+}
+
+#production_date{
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  float: right;
+  color: grey;
+}
+
+#flex{
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.box>p:first-child{
+  text-transform: uppercase;
+  height: 30px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 30px;
+  letter-spacing: 0.6px;
+  background-color: #26A69A;
+  color: white;
+}
+.box>p:last-child{
+  text-transform: uppercase;
+  height: 50px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 50px;
+  border-right:0.5px dashed #26A69A;
+  border-left:0.5px dashed #26A69A;
+  border-bottom:0.5px dashed #26A69A;
+  color:#26A69A;
+}
+#flex>div{
+  width: 100px;
+  height: 80px;
+}
+
+#batch_details{
+  border-collapse: collapse;
+  padding: 2%;
+  width: 90%;
+  margin: 30px auto;
+}
+
+tr{
+  border-bottom: 1px solid #e6e6e6;
+}
+
+th{
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-align: left;
+  background-color: #e6e6e6;
+  padding: 5px;
+}
+
+td{
+  font-weight: 300;
+  font-size: 0.85rem;
+  padding: 6px;
+}
+
+#water_activity{
+  display: none;
+  padding: 1%;
+  width: 90%;
+  margin: auto;
+  text-align: left;
+}
+
+
+</style>
+
+<div id='modal'>
+  <div id="batch">
+  <span id="close_form"> &times;</span>
+
+  <h1 id="batch_number"> </h1>
+  <h1 id="production_date"> </h1>
+  <h1 id="product"> </h1>
+
+  <div id="flex">
+    <div class="box">
+      <p>Quantity</p>
+      <p id="quantity_produced"> </p>
+    </div>
+
+    <div class="box">
+      <p>Cost</p>
+      <p id="batch_unit_cost"></p>
+    </div>
+
+    <div class="box">
+      <p>Waste</p>
+      <p id="waste"> </p>
+    </div>
+
+  </div>
+
+  <table id="batch_details">
+    <tr>
+      <th> Ingredient </th>
+      <th> Quantity </th>
+      <th> Unit Cost </th>
+    </tr>
+  </table>
+
+  <table id="water_activity">
+    <tr>
+      <th colspan="3"> Water Activity Levels </th>
+    </tr>
+
+  <table>
+
+</div>
+</div>
+
+<script>
+
+  $('#close_form').on('click',function(){
+    $('#modal').remove();
+  })
+
+</script>

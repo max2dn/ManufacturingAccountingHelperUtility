@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  color: #393A3D;
+}
+
+#main{
+  width:88%;
+  float: right;
+  position: relative;
+  height: 100vh;
+  background-color: #ECEEF1;
+}
+
+h1{
+  font-family: "Quicksand",sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
+  padding: 0.3em;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid grey;
+}
+
+form{
+  width: 80%;
+  margin: 50px auto 0 auto;
+  background-color: white;
+  border: 1px solid #D4D7DC;
+  border-radius: 3px;
+  padding: 20px;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+}
+
+fieldset{
+  display: block;
+  width: 80%;
+  margin: auto;
+  padding: 1em;
+  border: none;
+  border-bottom: 1px solid #D4D7DC;
+  position: relative;
+}
+
+label{
+  display: inline-block;
+  position: relative;
+  right: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+fieldset > .material-icons{
+  position: absolute;
+  right: -0.5rem;
+  top:1rem;
+}
+fieldset > .edit:hover{
+  cursor: pointer;
+  color: #E43834;
+}
+
+fieldset > .save:hover{
+  cursor: pointer;
+  color: #2CA01C;
+}
+
+input{
+  display:inline;
+  width: 30%;
+  padding: 0.7em;
+  border: none;
+  border-right: 1px solid grey;
+  font-size: 0.7rem;
+  clear: both;
+  position: absolute;
+  right: 40px;
+}
+
+input:focus{
+  outline: none;
+}
+
+.active{
+  color: #E43834;
+  border: 1px solid #E43834;
+}
+
+button{
+  border: none;
+}
+
+img{
+  width: 12%;
+  float: right;
+}
+img:hover{
+  cursor: pointer;
+}

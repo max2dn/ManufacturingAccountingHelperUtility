@@ -1,0 +1,49 @@
+<div id="new_recipe">
+  <form id="recipe_form">
+    <div class='form_header'>
+      <span class="close_form"> &times;</span>
+      <p class="form_name"> Recipe Form </p>
+    </div>
+
+    <div class='form_content'>
+
+      <div class="row">
+        <label for="product"> Product Name </label>
+        <input id="product" class='form' type="text" name="itemName" placeholder="Finished Good" />
+      </div>
+
+      <div class="row">
+        <label for="type"> Item Type </label>
+        <input class="type" type="radio" name="type" value="fishcake"> <span> Fishcake </span>
+        <input class="type" type="radio" name="type" value="non_fishcake"> <span> Non-Fishcake </span>
+      </div>
+
+      <div class="row">
+        <label for="product_unit"> Unit of Measure </label>
+        <select id="product_unit" class="unit form">
+                <option value ="pieces"> Per Piece </option>
+                <option value ="pounds"> Per Pounds </option>
+          </select>
+      </div>
+
+      <div class="row">
+        <label> Ingredient List </label>
+        <table id="ingredient_table">
+          <tr id="table_row" class="table_row">
+            <td>
+              <select id="select_ingredient_dropdown" class="select_item form">
+                <option value="" disabled selected> Ingredient </option>
+              </select>
+            </td>
+            <td> <button class='add' type='button'> + </button> </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="row">
+        <button id='submit_button' type='submit'> Create Recipe </button>
+      </div>
+
+    </div>
+  </form>
+</div>

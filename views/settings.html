@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title> Settings </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/scripts/settings.js"></script>
+  <script src="/scripts/utils.js"></script>
+  <script
+       type="text/javascript"
+       src="https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere-1.3.3.js">
+  </script>
+  <script>
+    intuit.ipp.anywhere.setup({
+        grantUrl: base_url + "/connect_to_quickbooks",
+        datasources: {
+            quickbooks: true,
+        },
+    });
+  </script>
+  <link href="/styles/setting.css" type="text/css" rel="stylesheet">
+</head>
+
+
+<body>
+    <nav id="navigation"></nav>
+
+    <div id='main'>
+    <form>
+      <img src="/images/C2QB.png" onclick="intuit.ipp.anywhere.controller.onConnectToIntuitClicked();"/>
+      <h1> Configurations</h1>
+      <fieldset>
+        <label> Client Id</label>
+          <input id="client_id" readonly="readonly"></input>
+          <button class="mdc-icon-button material-icons edit">edit</button>
+          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+
+      <fieldset>
+      <label> Client Secret </label>
+        <input id="client_secret"></input>
+        <button class="mdc-icon-button material-icons edit">edit</button>
+        <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+
+      <fieldset>
+        <label> Realm ID</label>
+          <input id="realm_id" readonly="readonly"></input>
+          <button class="mdc-icon-button material-icons edit">edit</button>
+          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+
+      <fieldset>
+      <label> Inventory Shrinkage Account</label>
+          <input id="inventory_shrinkage_account"></input>
+          <button class="mdc-icon-button material-icons edit">edit</button>
+          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+
+      <fieldset>
+      <label> Raw Item Asset Account Name</label>
+          <input id="raw_item_asset_account"></input>
+          <button class="mdc-icon-button material-icons edit">edit</button>
+          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+
+      <fieldset>
+      <label> Supplies Asset Account Name </label>
+          <input id="supplies_asset_account"></input>
+          <button class="mdc-icon-button material-icons edit">edit</button>
+          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+
+      <fieldset>
+      <label> Finished Good Asset Account Name </label>
+          <input id="fg_asset_account"></input>
+          <button class="mdc-icon-button material-icons edit">edit</button>
+          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+
+      <fieldset>
+      <label> Frozen Goods Sales Account Name </label>
+          <input id="frozen_goods_sales_account"></input>
+          <button class="mdc-icon-button material-icons edit">edit</button>
+          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+
+      <fieldset>
+      <label> Manufacturing Sales Account Name </label>
+          <input id="manufacturing_sales_account"></input>
+          <button class="mdc-icon-button material-icons edit">edit</button>
+          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+
+      <fieldset>
+      <label> In-House Vendor Name </label>
+          <input id="inhouse_vendor"></input>
+          <button class="mdc-icon-button material-icons edit">edit</button>
+          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+    </form>
+
+
+
+  </div>
+</body>
+
+</html>

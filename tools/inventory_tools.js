@@ -55,10 +55,10 @@ exports.resyncInventory = async function(date, item_id){
 
 exports.calculateTotalCost = async function(batch_id){
   try{
-    var select_sql = "SELECT SUM(inventory.cost) as total_cost FROM batch INNER JOIN batch_inventory on batch.batch_id=batch_inventory.batch_id " + 
+    var select_sql = "SELECT SUM(inventory.cost*batch_inventory.quantity) as total_cost FROM batch INNER JOIN batch_inventory on batch.batch_id=batch_inventory.batch_id " + 
                       "INNER JOIN inventory ON batch_inventory.inventory_id=inventory.inventory_id WHERE batch.batch_id=" + batch_id+ ";"
-    let result = mysql_tools.runSQLQueryAsync(select_sql);
-    return result.total_cost;
+    let result = await mysql_tools.runSQLQueryAsync(select_sql);
+    return result[0].total_cost;
   } catch(err){
     throw err;
   }

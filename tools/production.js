@@ -103,9 +103,9 @@ var exports = {}
 
 exports.getBatches = async function(query_data){
   try{
-    var select_sql = "SELECT *, DATE_FORMAT(production_date,'%m/%d/%Y') as date " +
-                    "FROM batch, item " +
-                    "WHERE batch.item_id=item.item_id";
+    var select_sql = "SELECT *, DATE_FORMAT(inventory.date,'%m/%d/%Y') as date " +
+                    "FROM batch, item, inventory " +
+                    "WHERE batch.batch_id=inventory.object_id AND item.item_id=inventory.item_id AND inventory.object_type='batch';";
     for(attribute in query_data){
       var new_sql = "AND " + attribute + "='" + query_data[attribute] + "' ";
       select_sql += new_sql;
@@ -117,9 +117,10 @@ exports.getBatches = async function(query_data){
 }
 
 exports.getMonthlyProduction = async function(product){
-  var select_sql = "SELECT YEAR(production_date) as year, MONTH(production_date) AS month, AVG(cost) AS avg_cost "+
-                    "FROM batch GROUP BY YEAR(production_date), MONTH(production_date) " +
-                    "ORDER BY YEAR(production_date), MONTH(production_date);";
+  var select_sql = "SELECT YEAR(inventory.date) as year, MONTH(inventory.date) AS month, AVG(cost) AS avg_cost "+
+                    "FROM batch, inventory WHERE batch.batch_id=inventory.object_id and inventory.object_type='batch'" + 
+                    "GROUP BY YEAR(inventory.date), MONTH(inventory.date) " +
+                    "ORDER BY YEAR(inventory.date), MONTH(inventory.date);";
   try{
     let result = await mysql_tools.runSQLQueryAsync(select_sql);
     data = [];
@@ -148,15 +149,8 @@ exports.getBatchInfo = async function(batch_id){
 
 exports.calculateUnitCost = async function(batch_id){
   try{
-    var total_cost = 0;
-    var select_inventory_sql = "SELECT inventory.cost AS cost, batch_inventory.quantity AS quantity " + 
-                      "FROM inventory INNER JOIN batch_inventory ON inventory.inventory_id=batch_inventory.inventory_id " 
-                      "WHERE batch_id=" + batch_id + ";"
-    let batch_inventory_result = await mysql_tools.runSQLQueryAsync(select_inventory_sql);
-    for(i in batch_inventory_result){
-      total_cost += batch_inventory_result[i].cost * batch_inventory_result[i].quantity;
-    }
-    var select_batch_sql = "SELECT * FROM batch WHERE batch_id=" + batch_id + ";";
+    let total_cost = await inventory_tools.calculateTotalCost(batch_id);
+    var select_batch_sql = "SELECT * FROM batch INNER JOIN inventory ON batch.batch_id=inventory.object_id WHERE batch.batch_id=" + batch_id + " AND object_type='batch';";
     let batch_result = await mysql_tools.runSQLQueryAsync(select_batch_sql);
     var unit_cost = total_cost/batch_result[0].quantity;
     let batch_update_sql = "UPDATE inventory SET cost=" + unit_cost + " WHERE object_type='batch' AND object_id=" + batch_id + ";";
@@ -187,9 +181,9 @@ exports.postProduction = async function(data){
     await conn.beginTransaction();                                     
     let result = await conn.query(insert_batch_sql, insert_batch_values);
     var batch_id = result.insertId;
-
+    var quantity = json_data.quantity_produced
     var insert_inventory_sql = "INSERT into inventory(item_id, object_type, object_id, date, quantity, cost, remaining) VALUES (?,?,?,?,?,?,?)";
-    var insert_inventory_values = [item_id, "batch", batch_id, date, json_data.quantity, 0, json_data.quantity];
+    var insert_inventory_values = [item_id, "batch", batch_id, json_data.production_date, quantity, 0, quantity];
     let insert_inventory_results = mysql_tools.runSQLQueryAsync(insert_inventory_sql, insert_inventory_values);
 
     var insert_results = [];

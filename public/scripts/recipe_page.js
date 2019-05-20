@@ -2,16 +2,27 @@ function openModal() {
   var modal = document.getElementById('new_recipe');
   modal.style.display = 'block';
 }
-
 function openEditModal(){
   var modal = document.getElementById('edit_recipe_modal');
   modal.style.display = 'block';
 }
-
 function displayProducts() {
   var xhr = createCORSRequest('GET', base_url + '/finishedgoods');
   xhr.send();
-  var results = JSON.parse(xhr.response);
+  var response = JSON.parse(xhr.response);
+
+  var results = response.sort(function(a,b){
+    var a=a.item_name.toUpperCase();
+    var b=b.item_name.toUpperCase();
+    if (a < b) {
+      return -1;
+    }
+    if (a > b) {
+      return 1;
+    }
+    return 0;
+  })
+
   for(i=0; i<results.length; i++){
     var div = $('<div class="item_block"></div>');
     var label = $('<p class="item_label"></p>');
@@ -23,7 +34,6 @@ function displayProducts() {
     $('.flexbox').append(div);
   }
 }
-
 function checkNonConfiguredItems(){
   var xhr = createCORSRequest('GET', base_url + '/nonconfigureditems');
   xhr.send();
@@ -35,7 +45,7 @@ function checkNonConfiguredItems(){
       items = items + json_data[i].item_name + ", ";
     };
     var notificationBox = $('#notification');
-    var notification = "<p id=message>"+"Please input the recipe for the following items:<br />" + items + "</p>";
+    var notification = "<p id=message>"+"Input the recipe for the following items:<br />" + items + "</p>";
     notification.className="message";
     notificationBox.append(notification);
     notificationBox.show();

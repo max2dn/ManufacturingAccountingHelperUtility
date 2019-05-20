@@ -4,56 +4,72 @@
   color: #393A3D;
 }
 
-#main{
-  width:88%;
-  float: right;
-  position: relative;
-  height: 100vh;
-  background-color: #ECEEF1;
+#main_content{
+  transition: margin-left .2s;
 }
 
 h1{
+  display: inline;
   font-family: "Quicksand",sans-serif;
   font-weight: 400;
-  font-size: 1.5em;
-  padding: 0.3em;
-  margin-bottom: 0.5em;
-  border-bottom: 1px solid grey;
+  font-size: 1.25em;
+  padding-left: 10px;
+  margin-top: 10px;
 }
 
 form{
-  width: 80%;
-  margin: 50px auto 0 auto;
+  width: 60%;
+  margin: auto;
   background-color: white;
   border: 1px solid #D4D7DC;
   border-radius: 3px;
-  padding: 20px;
+  margin-top: 50px;
+  padding: 20px 30px 20px 40px;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
 }
 
 fieldset{
   display: block;
-  width: 80%;
+  width: 100%;
+  padding: 10px 0 0 0;
   margin: auto;
-  padding: 1em;
   border: none;
-  border-bottom: 1px solid #D4D7DC;
   position: relative;
 }
 
 label{
   display: inline-block;
-  position: relative;
-  right: 0;
-  font-size: 0.8rem;
-  font-weight: 500;
+  float: left;
+  font-size: 0.75rem;
+  width: 40%;
+  padding: 10px;
+  background-color:	 #98bbcc;
+  color:#003333;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin: none;
+}
+
+input{
+  display:inline-block;
+  float: left;
+  border: none;
+  margin: none;
+  width: 50%;
+  border: 1px solid #98bbcc;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 9px;
+  font-size: 0.75rem;
+  color: lightslategray;
 }
 
 fieldset > .material-icons{
-  position: absolute;
-  right: -0.5rem;
-  top:1rem;
+  display: inline-block;
+  float: right;
+  color: rgb(175, 177, 184);
 }
+
 fieldset > .edit:hover{
   cursor: pointer;
   color: #E43834;
@@ -64,18 +80,6 @@ fieldset > .save:hover{
   color: #2CA01C;
 }
 
-input{
-  display:inline;
-  width: 30%;
-  padding: 0.7em;
-  border: none;
-  border-right: 1px solid grey;
-  font-size: 0.7rem;
-  clear: both;
-  position: absolute;
-  right: 40px;
-}
-
 input:focus{
   outline: none;
 }
@@ -83,6 +87,8 @@ input:focus{
 .active{
   color: #E43834;
   border: 1px solid #E43834;
+  border-radius: 3px;
+  background-color:white;
 }
 
 button{
@@ -90,8 +96,12 @@ button{
 }
 
 img{
-  width: 12%;
+  display: inline;
+  position: relative;
+  right:10px;
+  width: 100px;
   float: right;
+  margin-bottom: 10px;
 }
 img:hover{
   cursor: pointer;

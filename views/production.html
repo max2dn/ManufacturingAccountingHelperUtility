@@ -54,14 +54,52 @@
 
     <button id="open_form" type="button"> + </button>
 
-    <div id="chart">
+    <!--div id="chart">
       <div class="chart1">
         <canvas id="myChart"></canvas>
       </div>
+    </div>-->
 
+    <div id="inventory_dashboard">
+        <div class="tab_header">
+          <button class="tablink" name="finished_goods" id="defaultOpen"> Finished Goods </button>
+          <button class="tablink" name="raw_material"> Raw Materials </button>
+          <button class="tablink" name="supplies"> Supplies </button>
+        </div>
+  
+        <div class="tab_body">
+          <div id="finished_goods" class="tabcontent finished_goods">
+            <table id="finished_good_table">
+              <tr>
+                <th> Item </th>
+                <th> Last Cost </th>
+                <th> Quantity </th>
+              </tr>
+            </table>
+          </div>
+          <div id="raw_material" class="tabcontent raw_material">
+            <table id="raw_ingredient_table">
+              <tr>
+                <th> Item </th>
+                <th> Last Cost </th>
+                <th> Quantity</th>
+              </tr>
+            </table>
+          </div>
+          <div id="supplies" class="tabcontent supplies">
+            <table id="supplies_table">
+              <tr>
+                <th> Item </th>
+                <th> Last Cost </th>
+                <th> Quantity</th>
+              </tr>
+            </table>
+          </div>
+      </div>
     </div>
 
-    <div id="table">
+  
+    <div id="production_table">
       <div id="date_range">
         <label for="start" class='date_selector'> From: </label>
         <input type="date" id="start" name="start"/>
@@ -84,9 +122,9 @@
           <tbody>
           </tbody>
         </table>
-      </div>
-
     </div>
+
+  </div>
 
 </body>
 

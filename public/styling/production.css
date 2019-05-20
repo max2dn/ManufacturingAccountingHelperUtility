@@ -1,15 +1,11 @@
 * {
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
 }
 
 #main_content{
-  width: 88%;
-  float: right;
-  position: relative;
-  height: 100vh;
-  background-color: #ECEEF1;
+  transition: margin-left .2s;
 }
 
 #open_form{
@@ -28,14 +24,74 @@
 }
 
 #open_form:hover{
-  width: 65px;
-  height:65px;
   background-color: rgba(76, 175, 80, 0.80);
   box-shadow: rgba(76, 175, 80, 0.30) 0px 3px 3px 0px;
   cursor: pointer;
 }
 
-#table{
+/* Inventory Dashboard */
+#inventory_dashboard{
+  height: 45%;
+  width: 60%;
+  margin: 1% auto 1% auto;
+  padding: 1% 1% 0 1%;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+  overflow: scroll;
+
+}
+
+.tab_header{
+  background-color: #ECEEF1;
+  margin-bottom: 5px;
+}
+
+.tablink {
+  background-color:inherit;
+  border: none;
+  padding:8px;
+  margin: none;
+  font-size: .9rem;
+}
+
+.tablink:hover {
+  background-color: #3aaf85;
+  color: white;
+}
+
+.tablink.active {
+  background-color:  #3aaf85;
+  color: white;
+  outline: none;
+}
+
+#inventory_dashboard table{
+   border-collapse: collapse;
+   width: 90%;
+   margin-left: 5px;
+   text-align:left;
+}
+
+#inventory_dashboard th{
+  font-weight: 500;
+  padding: 5px;
+}
+
+#inventory_dashboard tr{
+  border-bottom: 1px solid #e6e6e6;
+}
+
+#inventory_dashboard td{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  padding: 5px;
+}
+
+/*Production Table*/
+
+#production_table{
   width: 90%;
   margin: auto;
   background-color: white;
@@ -45,12 +101,24 @@
 }
 
 #date_range{
-  width: 90%;
+  width: 40%;
   margin-bottom:10px;
+}
+
+#date_range>label{
+  font-size: 0.8rem;
 }
 
 #date_range>input{
   padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #d9d9d9;
+}
+
+input[type="search"], {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #d9d9d9;
 }
 
 #myTable_wrapper{
@@ -65,9 +133,9 @@
 }
 
 thead{
-  font-family: "Quicksand", sans-serif;
   background-color: #E3E5E8;
   text-align: left;
+  font-weight: 200;
 }
 
 td.details-control {
@@ -81,23 +149,170 @@ tr.shown td.details-control {
   background-size: 25px 25px;
 }
 
-#chart{
-  width: 80%;
-  margin: 2% auto;
+/* New Production Form */
+
+#modal{
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width:100vw;
+  top:0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  overflow: scroll;
+}
+#production_form {
+  width:40%;
+  margin:  2% auto;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.2);
 }
 
-.chart1{
+/* Header */
+#form_header{
   background-color: white;
-  padding: 2%;
-  width: 400px;
-  height: 250px;
-  display: inline-block;
-  border-radius: 3px;
-  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+  padding: 1% 3% 1% 6%;
+}
+#form_name {
+  color: #3c6bbe;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-top: 3%;
+}
+i.material-icons {
+  background-color: #7a9fdd;
+  border-radius: 50%;
+  color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
+  font-size: 30px;
+  padding: 6px;
+  margin-right: 6px;
+  position: relative;
+  vertical-align: middle;
+  top: -1px;
+}
+#close_button{
+  color: grey;
+  float: right;
+  font-size: 1.5rem;
+  position: relative;
+}
+#close_button:hover,#close_button:focus{
+  color:#3c6bbe;
+  cursor:pointer;
 }
 
-#chart:after {
-    content: "";
-    clear: both;
-    display: table;
+/* Body */
+#form_body{
+  width: 100%;
+  padding: 2%;
+  background-color:white;
+}
+fieldset{
+  width: 90%;
+  margin: 0 auto 0 auto;
+  padding: 0.5rem 0;
+  border: none;
+}
+#select_product_dropdown{
+  height: 32px;
+  font-size: 12px;
+}
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content:space-between;
+}
+.flex>div{
+  width: 45%;
+}
+.divider{
+  border-top:0.5px dashed #969ca3;
+  height:1px;
+  margin: 10px auto;
+  width: 95%;
+}
+
+fieldset>label , .date>label{
+  display: block;
+  font-size: 0.75rem;
+  color:#4A4D55;
+  letter-spacing: 0.2px;
+  margin: 6px 0 6px 0;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.form,.quantity{
+  width: 100%;
+  margin: 0 auto 0 auto;
+  padding: 0.7em;
+  border-radius: 3px;
+  border: 1px solid #d9d9d9;
+  font-size: 0.75rem;
+}
+input:placeholder {
+  opacity: 0.6;
+  letter-spacing: 0.3px;
+}
+
+/* Ingredient Table */
+#recipe_table {
+  width: 80%;
+  margin: auto;
+  font-size: 0.75rem;
+  color:#393A3D;
+}
+
+td>.quantity{
+  width: 100px;
+}
+
+/* Water Activity */
+.water{
+  display: flex;
+  justify-content: space-between;
+}
+.water>input{
+  width: 30%;
+  margin: none;
+}
+
+/* Submit & Reset button styling */
+.submit_div{
+  margin-top: 20px;
+}
+.form_buttons{
+  padding: 1em;
+  border-radius: 25px;
+  color: white;
+}
+#submit_button {
+  width: 40%;
+  background-color: #3c6bbe;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px 0px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+}
+#submit_button:hover {
+  background-color: white;
+  color: #3c6bbe;
+  border: 1px solid #3c6bbe;
+  transition: 0.2s;
+  cursor: pointer;
+}
+#form_reset_button {
+  width: 15%;
+  color: grey;
+  border: none;
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing:1px;
+  background: none;
+}
+#form_reset_button:hover {
+  color: #E43834;
+  cursor: pointer;
 }

@@ -26,6 +26,8 @@ function populateRecipeTable(product){
   var new_tbody = document.createElement('tbody');
   var json_data = JSON.parse(xhr.response);
 
+  console.log(json_data);
+
   // Add ingredients to table
   for (var i=0; i<json_data.length; i++){
     var table_row = document.createElement("tr");
@@ -61,7 +63,6 @@ function populateRecipeTable(product){
   }
 
   old_tbody.parentNode.replaceChild(new_tbody, old_tbody);
-  first_quantity_box.focus();
 }
 
 function getFormData(){
@@ -128,7 +129,7 @@ function populateSuccessfulSubmission(json_response){
   $('#unit_cost').text(formatter.format(json_response['cost']));
 
   var modal = document.getElementById('modal');
-  modal.onclick = function(event) {
+      modal.onclick = function(event) {
       location.reload();
   };
 }

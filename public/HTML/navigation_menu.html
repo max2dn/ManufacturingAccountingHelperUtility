@@ -7,85 +7,107 @@
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Quicksand:300,400,500,700');
   * {
     margin: 0;
-    box-sizing: border-box;
-  }
-
-  #header{
-    width:100%;
-    height:70px;
-    background-color: #535e63;
-    position: sticky;
-    z-index: 1;
-  }
-
-  #logo{
-    height: 80%;
-    margin-left: 30px;
-    float: left;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  #logout_button{
-    font-family: 'Quicksand', sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    background-color: inherit;
-    color:white;
+    padding: 0;
     border: none;
-    line-height: 70px;
-    height: 70px;
-    width: 100px;
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
-    float: right;
-    text-align: center;
+    font-family: "Roboto";
   }
 
-  #logout_button:hover{
-    background-color: #EC7063;
+  body{
+    background-color:#F4F5F8;
+  }
+
+  #main_content{
+    height: 100vh;
+    transition: margin-left .5s;
+  }
+
+  #burger{
+    position: absolute;
+    top:0;
+    margin-left: 10px;
+    font-size: 35px;
+    color: #e91e63;
+  }
+
+  .closebtn{
+    color:rgb(46, 87, 141);
+    font-size: 50px;
+    float: right;
+    margin-right: 15px;
+    margin-top:-10px;
+    text-decoration: none;
+  }
+
+  .closebtn:hover{
+    color: #e91e63;
   }
 
   #side_menu{
     height:100%;
-    width:12%;
-    position:fixed;
-    float: left;
+    width: 0;
     top: 0;
-    left:0;
-    background-color:#ECEEF1;
+    left: 0;
+    position:fixed;
+    z-index: 1;
+    float: left;
+    background-color:rgb(66, 113, 184);
     overflow-x: hidden;
-    padding-top: 150px;
   }
 
-  a.sidebar {
-    font-family: 'Quicksand', sans-serif;
+  .nav_menu{
+    margin-top: 200px;
+  }
+
+  .link {
     text-decoration: none;
     width: 100%;
     display:inline-block;
-    color:#393A3D;
+    color:white;
     font-size: 1em;
     font-weight: 400;
     letter-spacing: 1px;
     padding: 10% 10% 10% 20%;
   }
-  a:hover {
-    background-color: #cfd8dc;
+  .link:hover {
+    background-color: #e91e63;
+  }
+
+  #logout_button{
+    background-color: #e91e63;
+    border: none;
+    
+    width: 100%;
+    margin: auto;
+    padding: 15px;
+    position: absolute;
+    bottom:0;
+    
+    color:white;
+    text-transform: uppercase;
+    text-decoration: none;
+    
+    font: 0.75rem "Roboto";
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  #logout_button:hover{
+    background-color: rgb(216, 216, 216);
   }
 
 </style>
 
-<div id="header">
-    <img id="logo" alt="logo" src="/images/okuhara_logo.svg">
-    <a href="/logout" id="logout_button">sign out</a>
-</div>
+<span id="burger" style="cursor:pointer;" onclick="openNav()">&#9776;</span>
 
 <div id='side_menu'>
-    <a class="sidebar" href="/homepage">Home</a>
-    <a class="sidebar" href="/productionpage">Production</a>
-    <a class="sidebar" href="/recipepage">Recipe</a>
-    <a class="sidebar" href="/settingspage">Settings</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#8689;</a>
+    <ul class="nav_menu">
+          <a class="link" href="/homepage">Home</a>
+          <a class="link" href="/productionpage">Production</a>
+          <a class="link" href="/recipepage">Recipe</a>
+          <a class="link" href="/settingspage">Settings</a>
+    </ul>
+    <a href="/logout" id="logout_button">sign out</a>
 </div>
 
 <script>
@@ -93,5 +115,17 @@
   $('#logout_button').on('click',function(){
 
   })
+
+function openNav() {
+  document.getElementById("side_menu").style.width = "150px";
+  document.getElementById("main_content").style.marginLeft = "150px";
+  document.getElementById("burger").style.display="none";
+}
+
+function closeNav() {
+  document.getElementById("side_menu").style.width="0";
+  document.getElementById("main_content").style.marginLeft= "0";
+  document.getElementById("burger").style.display="inline";
+}
 
 </script>

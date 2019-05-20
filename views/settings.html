@@ -26,30 +26,17 @@
 <body>
     <nav id="navigation"></nav>
 
-    <div id='main'>
-    <form>
-      <img src="/images/C2QB.png" onclick="intuit.ipp.anywhere.controller.onConnectToIntuitClicked();"/>
+    <div id='main_content'>
+
+    <form id="qb_config">
       <h1> Configurations</h1>
+      <img src="/images/C2QB.png" onclick="intuit.ipp.anywhere.controller.onConnectToIntuitClicked();"/>
       <fieldset>
-        <label> Client Id</label>
-          <input id="client_id" readonly="readonly"></input>
-          <button class="mdc-icon-button material-icons edit">edit</button>
-          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
-      </fieldset>
-
-      <fieldset>
-      <label> Client Secret </label>
-        <input id="client_secret"></input>
-        <button class="mdc-icon-button material-icons edit">edit</button>
-        <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
-      </fieldset>
-
-      <fieldset>
-        <label> Realm ID</label>
-          <input id="realm_id" readonly="readonly"></input>
-          <button class="mdc-icon-button material-icons edit">edit</button>
-          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
-      </fieldset>
+        <label> In-House Vendor Name </label>
+            <input id="inhouse_vendor"></input>
+            <button class="mdc-icon-button material-icons edit">edit</button>
+            <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+        </fieldset>
 
       <fieldset>
       <label> Inventory Shrinkage Account</label>
@@ -94,16 +81,31 @@
       </fieldset>
 
       <fieldset>
-      <label> In-House Vendor Name </label>
-          <input id="inhouse_vendor"></input>
+        <label> Client Id</label>
+          <input id="client_id" readonly="readonly"></input>
           <button class="mdc-icon-button material-icons edit">edit</button>
           <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
       </fieldset>
+
+      <fieldset>
+      <label> Client Secret </label>
+        <input id="client_secret"></input>
+        <button class="mdc-icon-button material-icons edit">edit</button>
+        <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+
+      <fieldset>
+        <label> Realm ID</label>
+          <input id="realm_id" readonly="readonly"></input>
+          <button class="mdc-icon-button material-icons edit">edit</button>
+          <button class="mdc-icon-button material-icons save" style="display:none">check_circle</button>
+      </fieldset>
+
     </form>
 
 
-
   </div>
+  
 </body>
 
 </html>

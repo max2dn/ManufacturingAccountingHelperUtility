@@ -1,17 +1,16 @@
+//Production Table
 function populateProductionTable() {
   var xhr = createCORSRequest('GET', base_url + '/production');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
   return json_data;
 }
-
 function getBatchDetails(){
   var xhr = createCORSRequest('GET', base_url + '/batchinfo?batch_id='+ window.clicked_item);
   xhr.send();
   var json_data = JSON.parse(xhr.response);
   return json_data;
 }
-
 function displayBatchDetails(rowData,batchDetails){
   var batchNumber = rowData.batch_id;
   var finishedGood = rowData.item_name;
@@ -52,7 +51,6 @@ function displayBatchDetails(rowData,batchDetails){
           '</tr>'
     )}
 }
-
 function isUndefined(myVar) {
   if (myVar.includes('undefined')) {
     return true;
@@ -60,6 +58,68 @@ function isUndefined(myVar) {
   return false;
 }
 
+
+//Inventory Dashboard 
+function displayTableGraph(e, category) {
+  // Get tables and do not display
+  var tabContent = document.getElementsByClassName('tabcontent');
+  for (i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = "none";
+  };
+
+  var tabLinks = document.getElementsByClassName('tablink');
+  for (i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+  };
+  var content = document.getElementsByClassName(category);
+  for (i = 0; i < content.length; i++) {
+    content[i].style.display = "block";
+  };
+  e.currentTarget.className += " active";
+}
+function getRawInventory(){
+  var xhr = createCORSRequest('GET', base_url + '/rawinventory');
+  xhr.send();
+  var json_data = JSON.parse(xhr.response);
+
+  for(var i=0;i<json_data.length;i++){
+    var tableRow = $('<tr></tr>').addClass('table_row');
+    var itemCell = '<td>' + json_data[i].product + '</td>';
+    var costCell = '<td>' +'$'+ json_data[i].cost + '</td>';
+    var quantityCell = '<td>' + json_data[i].quantity + '</td>';
+    tableRow.append(itemCell, costCell, quantityCell);
+    $('#raw_ingredient_table').append(tableRow);
+  };
+}
+function getSuppliesInventory(){
+  var xhr = createCORSRequest('GET', base_url + '/suppliesinventory');
+  xhr.send();
+  var json_data = JSON.parse(xhr.response);
+
+  for(var i=0;i<json_data.length;i++){
+    var tableRow = $('<tr></tr>').addClass('table_row');
+    var itemCell = '<td>' + json_data[i].product + '</td>';
+    var costCell = '<td>' +'$'+ json_data[i].cost + '</td>';
+    var quantityCell = '<td>' + json_data[i].quantity + '</td>';
+    tableRow.append(itemCell, costCell, quantityCell);
+    $('#supplies_table').append(tableRow);
+  };
+}
+function getFinishedInventory(){
+  var xhr = createCORSRequest('GET', base_url + '/finishedinventory');
+  xhr.send();
+  var json_data = JSON.parse(xhr.response);
+  for(var i=0;i<json_data.length;i++){
+    var tableRow = $('<tr></tr>').addClass('table_row');
+    var itemCell = '<td>' + json_data[i].product + '</td>';
+    var costCell = '<td>' + '$'+ json_data[i].cost + '</td>';
+    var quantityCell = '<td>' + json_data[i].quantity + '</td>';
+    tableRow.append(itemCell, costCell, quantityCell);
+    $('#finished_good_table').append(tableRow);
+};
+}
+
+//For Chart 
 function getMonthlyAverage() {
   var xhr = createCORSRequest('GET', base_url + '/monthlyproduction?product=Uzumaki');
   xhr.send();
@@ -67,7 +127,6 @@ function getMonthlyAverage() {
   console.log(json_data);
   return json_data;
 }
-
 function fgInventoryLabels(){
   var xhr = createCORSRequest('GET', base_url + '/finishedinventory');
   xhr.send();
@@ -92,14 +151,16 @@ function fgInventoryQuantities(){
 }
 
 
-document.onready = function(){
-  document.getElementById("open_form").onclick = function(){
-    load('/modules/enter_production.html')
-  }
-};
-
 $(document).ready(function() {
   $('#navigation').load('/modules/navigation_menu.html');
+
+  getRawInventory();
+  getSuppliesInventory();
+  getFinishedInventory();
+  $('.tablink').on('click', function() {
+      displayTableGraph(event, this.name)
+    });
+  document.getElementById('defaultOpen').click();
 
   $('#open_form').on('click', function() {
     $('#enter_production').load('/modules/enter_production.html', function() {
@@ -187,7 +248,7 @@ $(document).ready(function() {
   });
 
 //Chart JS
-  getMonthlyAverage();
+/*getMonthlyAverage();
 
   var timeFormat = 'MM/DD/YYYY';
   var ctx = document.getElementById("myChart");
@@ -237,6 +298,6 @@ $(document).ready(function() {
                 }]
             }
         }
-    })
+    })*/
 
 })

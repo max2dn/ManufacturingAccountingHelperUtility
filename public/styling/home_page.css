@@ -1,15 +1,7 @@
-body {
-  box-sizing: border-box;
-  font-family: 'Quicksand', sans-serif;
-}
 
-#main_content{
-  height: 100vh;
-  width: 88%;
-  float: right;
-  position: relative;
-  background-color: #ECEEF1;
-  padding: 5% 0 0 2%;
+.airtable{
+  margin: 20px auto 0 auto;
+  width: 90%;
 }
 
 #notification_modal{

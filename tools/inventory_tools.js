@@ -96,13 +96,13 @@ exports.updateInventory = async function(){
 exports.updateRawItem = async function(quantities){
   try{
     let refreshResponse = await qb_tools.refreshToken();
-    await updateIteminQB(quantities);
+    await updateQBInventory(quantities);
   } catch(err){
     console.log(err);
   }
 }
 
-exports.updateIteminQB = async function (quantities){
+exports.updateQBInventory = async function (quantities, date){
   try{
     var length = quantities.length;
     for (ingredient in quantities){

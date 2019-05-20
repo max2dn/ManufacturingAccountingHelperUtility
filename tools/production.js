@@ -32,7 +32,7 @@ async function updateUsedIngredients(json_data) {
       checkInventoryResults.push(checkTotalInventory(ingredient, quantities[ingredient]));
     }
     await Promise.all(checkInventoryResults);
-    //await inventory_tools.updateIteminQB(quantities);
+    //await inventory_tools.updateQBInventory(quantities, json_data.production_date);
     for (ingredient in quantities) {
       let item_id = await db_getters.getItemId(ingredient);
       let deduction_result = await inventory_tools.deductInventory(item_id, quantities[ingredient]);

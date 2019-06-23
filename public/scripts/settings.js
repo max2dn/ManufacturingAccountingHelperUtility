@@ -1,8 +1,8 @@
 
 $(document).ready(function(){
 
-$('#navigation').load('/modules/navigation_menu.html');
-var xhr = createCORSRequest('GET', base_url + '/config');
+$('#navigation').load('/public/modules/navigation_menu.html');
+var xhr = createCORSRequest('GET', base_url + '/api/settings');
 xhr.send();
 var settings = JSON.parse(xhr.response);
 
@@ -32,7 +32,7 @@ $('.save').on('click',function(e){
   input.attr('readonly','readonly');
   input.removeClass('active');
   var query = "?" + input[0].id + "=" + input[0].value;
-  var xhr = createCORSRequest('PUT', base_url + '/config' + query);
+  var xhr = createCORSRequest('PUT', base_url + '/api/settings' + query);
   xhr.send();
   if(xhr.status!=200){
     alert(xhr.statusText)

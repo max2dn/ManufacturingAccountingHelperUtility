@@ -1,6 +1,6 @@
 function getBatchDetails(){
   console.log(window.clicked_item);
-  var xhr = createCORSRequest('GET', base_url + '/batchinfo?batch_id='+ window.clicked_item);
+  var xhr = createCORSRequest('GET', base_url + '/api/production/batch?batch_id='+ window.clicked_item);
   console.log(JSON.parse(xhr.response));
   xhr.send();
   var json_data = JSON.parse(xhr.response);

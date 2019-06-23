@@ -17,7 +17,7 @@ function displayTableGraph(e, category) {
 }
 
 function getRawInventory(){
-    var xhr = createCORSRequest('GET', base_url + '/rawinventory');
+    var xhr = createCORSRequest('GET', base_url + '/api/inventory/raw');
     xhr.send();
     var json_data = JSON.parse(xhr.response);
 
@@ -32,7 +32,7 @@ function getRawInventory(){
 }
 
 function getSuppliesInventory(){
-    var xhr = createCORSRequest('GET', base_url + '/suppliesinventory');
+    var xhr = createCORSRequest('GET', base_url + '/api/inventory/supplies');
     xhr.send();
     var json_data = JSON.parse(xhr.response);
 
@@ -47,7 +47,7 @@ function getSuppliesInventory(){
 }
 
 function getFinishedInventory(){
-    var xhr = createCORSRequest('GET', base_url + '/finishedinventory');
+    var xhr = createCORSRequest('GET', base_url + '/api/inventory/finishedgoods');
     xhr.send();
     var json_data = JSON.parse(xhr.response);
     for(var i=0;i<json_data.length;i++){
@@ -61,7 +61,7 @@ function getFinishedInventory(){
 }
 
 function rawInventoryLabels(){
-  var xhr = createCORSRequest('GET', base_url + '/rawinventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/inventory/raw');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -83,7 +83,7 @@ function groupArray(fullArray, chunk_size){
 }
 
 function rawInventoryQuantities(){
-  var xhr = createCORSRequest('GET', base_url + '/rawinventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/inventory/raw');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -95,7 +95,7 @@ function rawInventoryQuantities(){
 }
 
 function fgInventoryLabels(){
-  var xhr = createCORSRequest('GET', base_url + '/finishedinventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/inventory/finishedgoods');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -106,7 +106,7 @@ function fgInventoryLabels(){
   return labels
 }
 function fgInventoryQuantities(){
-  var xhr = createCORSRequest('GET', base_url + '/finishedinventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/inventory/finishedgoods');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -118,7 +118,7 @@ function fgInventoryQuantities(){
 }
 
 function supplyInventoryLabels(){
-  var xhr = createCORSRequest('GET', base_url + '/suppliesinventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/inventory/supplies');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -129,7 +129,7 @@ function supplyInventoryLabels(){
   return labels
 }
 function supplyInventoryQuantities(){
-  var xhr = createCORSRequest('GET', base_url + '/suppliesinventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/inventory/supplies');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -141,12 +141,12 @@ function supplyInventoryQuantities(){
 }
 
 function syncInventory(){
-  var xhr = createCORSRequest('GET', base_url + '/syncInventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/actions/sync');
   xhr.send();
 }
 
 function checkNonConfiguredItems(){
-  var xhr = createCORSRequest('GET', base_url + '/nonconfigureditems');
+  var xhr = createCORSRequest('GET', base_url + '/api/items/nonconfigured');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -167,7 +167,7 @@ function checkNonConfiguredItems(){
 
 $(document).ready(function() {
 
-  $('#navigation').load('/modules/navigation_menu.html');
+  $('#navigation').load('/public/modules/navigation_menu.html');
 
   checkNonConfiguredItems();
   $('#close_form').on('click',function(){

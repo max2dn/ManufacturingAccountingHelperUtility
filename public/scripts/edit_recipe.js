@@ -1,6 +1,5 @@
 function getRecipe() {
-  var xhr = createCORSRequest('GET', base_url + '/recipe?product=' + window.clicked_item);
-  console.log(window.clicked_item);
+  var xhr = createCORSRequest('GET', base_url + '/api/recipe?product=' + window.clicked_item);
   xhr.send();
   var result = JSON.parse(xhr.response);
   $('#product').text(result.product);
@@ -25,7 +24,7 @@ function addIngredient(){
     var ingredient_dropdown = $('<select></select>').addClass('select_item');
     var deleteButton = '<td class="delete_td"> <i class="material-icons delete_button"> remove_circle_outline </i></td>';
 
-    var xhr = createCORSRequest('GET', base_url + '/rawitems');
+    var xhr = createCORSRequest('GET', base_url + '/api/items/raw');
     xhr.send();
     var json_data = JSON.parse(xhr.response);
     for (var i = 0; i < json_data.length; i++) {
@@ -92,7 +91,7 @@ $('#ingredient_table').on('click', '.delete_button', function() {
 });
 
 $('#update_button').on('click', function(event) {
-  var xhr = createCORSRequest('PUT', base_url + "/recipe");
+  var xhr = createCORSRequest('PUT', base_url + "/api/recipe");
   event.preventDefault();
   xhr.setRequestHeader("Content-Type", "text/plain;");
   var form_data=getFormData();

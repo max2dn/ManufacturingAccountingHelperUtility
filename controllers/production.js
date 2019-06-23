@@ -1,7 +1,7 @@
-var qb_tools = require('./quickbooks_tools.js')
-var inventory_tools = require('./inventory_tools.js')
-var mysql_tools = require('./mysql_tools.js')
-var db_getters = require('./database_getters.js')
+var qb_tools = require('../util/quickbooks_tools.js')
+var inventory_tools = require('../util/inventory_tools.js')
+var mysql_tools = require('../util/mysql_tools.js')
+var db_getters = require('../model/database_getters.js')
 
 async function checkTotalInventory(item_name, quantity){
   try{

@@ -1,17 +1,17 @@
 //Production Table
 function populateProductionTable() {
-  var xhr = createCORSRequest('GET', base_url + '/production');
+  var xhr = createCORSRequest('GET', base_url + '/api/production');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
   return json_data;
 }
 function getBatchDetails(){
-  var xhr = createCORSRequest('GET', base_url + '/batchinfo?batch_id='+ window.clicked_item);
+  var xhr = createCORSRequest('GET', base_url + '/api/production/batch?batch_id='+ window.clicked_item);
   xhr.send();
   var json_data = JSON.parse(xhr.response);
   return json_data;
 }
-function displayBatchDetails(rowData,batchDetails){
+function displayBatchDetails(rowData, batchDetails){
   var batchNumber = rowData.batch_id;
   var finishedGood = rowData.item_name;
   var productionDate = rowData.date;
@@ -78,7 +78,7 @@ function displayTableGraph(e, category) {
   e.currentTarget.className += " active";
 }
 function getRawInventory(){
-  var xhr = createCORSRequest('GET', base_url + '/rawinventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/inventory/raw');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -92,7 +92,7 @@ function getRawInventory(){
   };
 }
 function getSuppliesInventory(){
-  var xhr = createCORSRequest('GET', base_url + '/suppliesinventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/inventory/supplies');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -106,7 +106,7 @@ function getSuppliesInventory(){
   };
 }
 function getFinishedInventory(){
-  var xhr = createCORSRequest('GET', base_url + '/finishedinventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/inventory/finishedgoods');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
   for(var i=0;i<json_data.length;i++){
@@ -121,14 +121,14 @@ function getFinishedInventory(){
 
 //For Chart 
 function getMonthlyAverage() {
-  var xhr = createCORSRequest('GET', base_url + '/monthlyproduction?product=Uzumaki');
+  var xhr = createCORSRequest('GET', base_url + '/api/production/monthly?product=Uzumaki');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
   console.log(json_data);
   return json_data;
 }
 function fgInventoryLabels(){
-  var xhr = createCORSRequest('GET', base_url + '/finishedinventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/inventory/finishedgoods');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -139,7 +139,7 @@ function fgInventoryLabels(){
   return labels
 }
 function fgInventoryQuantities(){
-  var xhr = createCORSRequest('GET', base_url + '/finishedinventory');
+  var xhr = createCORSRequest('GET', base_url + '/api/inventory/finishedgoods');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -152,7 +152,7 @@ function fgInventoryQuantities(){
 
 
 $(document).ready(function() {
-  $('#navigation').load('/modules/navigation_menu.html');
+  $('#navigation').load('/public/modules/navigation_menu.html');
 
   getRawInventory();
   getSuppliesInventory();
@@ -163,8 +163,8 @@ $(document).ready(function() {
   document.getElementById('defaultOpen').click();
 
   $('#open_form').on('click', function() {
-    $('#enter_production').load('/modules/enter_production.html', function() {
-      $.getScript('/scripts/enter_production.js')
+    $('#enter_production').load('/public/modules/enter_production.html', function() {
+      $.getScript('/public/scripts/enter_production.js')
     });
   });
 
@@ -212,11 +212,11 @@ $(document).ready(function() {
     var row = table.row( tr );
     var rowData = row.data();
     window.clicked_item = row.data().batch_id;
-    var xhr = createCORSRequest('GET', base_url + '/batchinfo?batch_id='+ window.clicked_item);
+    var xhr = createCORSRequest('GET', base_url + '/api/production/batch?batch_id='+ window.clicked_item);
     xhr.send();
     var json_data = JSON.parse(xhr.response);
 
-      $('#view_batch').load('/modules/view_batch_details.html',function(){
+      $('#view_batch').load('/public/modules/view_batch_details.html',function(){
         displayBatchDetails(rowData,json_data);
     });
   });

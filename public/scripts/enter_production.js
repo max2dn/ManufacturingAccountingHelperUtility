@@ -1,5 +1,5 @@
 function populateProductDropdown(){
-  var xhr = createCORSRequest('GET', base_url + '/finishedgoods');
+  var xhr = createCORSRequest('GET', base_url + '/api/items/finishedgoods');
   xhr.send();
   var product_dropdown = document.getElementById("select_product_dropdown");
   console.log(product_dropdown)
@@ -20,7 +20,7 @@ function populateRecipeTable(product){
   document.getElementsByClassName('date_picker')[0].valueAsDate = todays_date;
   document.getElementsByClassName('date_picker')[1].valueAsDate = expirationDate;
 
-  var xhr = createCORSRequest('GET', base_url + '/ingredients?finishedgood=' + product);
+  var xhr = createCORSRequest('GET', base_url + '/api/recipe/ingredients?finishedgood=' + product);
   xhr.send();
   var old_tbody = document.getElementById("recipe_table").childNodes[1];
   var new_tbody = document.createElement('tbody');
@@ -101,7 +101,7 @@ function getFormData(){
 function submitForm(){
   $("#submit_button").click(function(event){
       event.preventDefault();
-      var xhr = createCORSRequest('POST', base_url + '/production');
+      var xhr = createCORSRequest('POST', base_url + '/api/production');
       xhr.setRequestHeader("Content-Type", "text/plain;");
       var form_data=getFormData()
       if(form_data === null){
@@ -113,11 +113,11 @@ function submitForm(){
 
       var json_response = JSON.parse(xhr.response);
       if(xhr.status != 200){
-        $('#modal').load('/modules/failed_submission.html',function(){
+        $('#modal').load('/public/modules/failed_submission.html',function(){
           populateFailedSubmission(json_response);
         })
       } else{
-        $('#modal').load('/modules/successful_submission.html',function(){
+        $('#modal').load('/public/modules/successful_submission.html',function(){
           populateSuccessfulSubmission(json_response);
         })
       }
@@ -177,14 +177,14 @@ populateProductDropdown();
 $("#select_product_dropdown").change(function() {
     var product = this.value;
       if ($('option:selected').hasClass('fishcake')){
-          $("#type_form").load('/modules/enter_production_fishcake.html', function () {
+          $("#type_form").load('/public/modules/enter_production_fishcake.html', function () {
             populateRecipeTable(product);
             submitForm();
             resetForm();
           })
       }
       else {
-        $("#type_form").load('/modules/enter_production_non-fishcake.html', function () {
+        $("#type_form").load('/public/modules/enter_production_non-fishcake.html', function () {
           populateRecipeTable(product);
           submitForm();
           resetForm();

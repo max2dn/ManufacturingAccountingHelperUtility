@@ -1,5 +1,5 @@
-var mysql_tools = require('./mysql_tools.js')
-var db_getters = require('./database_getters.js')
+var mysql_tools = require('../util/mysql_tools.js')
+var db_getters = require('../model/database_getters.js')
 
 async function getFinishedGoodUOM(product){
   try{

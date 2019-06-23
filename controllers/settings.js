@@ -1,4 +1,4 @@
-var qb_tools = require('./quickbooks_tools.js')
+var qb_tools = require('../util/quickbooks_tools.js')
 var exports = {} 
 
 exports.getInHouseVendor = async function(inhouse_vendor_name){

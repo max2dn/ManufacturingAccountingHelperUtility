@@ -1,5 +1,5 @@
-var mysql_tools = require('./mysql_tools.js');
-var qb_tools = require('./quickbooks_tools.js');
+var mysql_tools = require('../util/mysql_tools.js');
+var qb_tools = require('../util/quickbooks_tools.js');
 
 var exports = {}
 exports.deductInventory = async function(item_id, deduct_quantity){

@@ -1,4 +1,4 @@
-var mysql_tools = require('./mysql_tools.js')
+var mysql_tools = require('../util/mysql_tools.js')
 
 var exports = {};
 

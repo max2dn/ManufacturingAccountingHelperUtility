@@ -17,7 +17,7 @@ exports.basicAuth = require('btoa')(authConfig.clientId + ':' + authConfig.clien
 
 // Use a local copy for startup.  This will be updated in refreshEndpoints() to call:
 // https://developer.api.intuit.com/.well-known/openid_configuration/
-exports.openid_configuration = require('./openid_configuration.json')
+exports.openid_configuration = require('../config/openid_configuration.json')
 
 // Should be called at app start & scheduled to run once a day
 // Get the latest OAuth/OpenID endpoints from Intuit

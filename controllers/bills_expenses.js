@@ -1,7 +1,6 @@
-var mysql_tools = require('./mysql_tools.js');
-var configs = require('./config_file_loader.js').config;
-var inventory_tools = require('./inventory_tools.js');
-var qb_tools = require('./quickbooks_tools.js');
+var mysql_tools = require('../util/mysql_tools.js');
+var configs = require('../util/config_file_loader.js').config;
+var qb_tools = require('../util/quickbooks_tools.js');
 var items = require('./items.js');
 
 var exports = {};

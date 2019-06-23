@@ -1,13 +1,11 @@
-var tools = require('../tools/tools.js')
+var tools = require('../../util/tools')
 var express = require('express')
 var router = express.Router()
 
-/** /connect_handler **/
-// This would be the endpoint that is called when "Get App Now" is clicked
-// from apps.com
+/** /sign_in_with_intuit **/
 router.get('/', function (req, res) {
-  // Set the OpenID + Accounting + Payment scopes
-  tools.setScopes('connect_handler')
+  // Set the OpenID scopes
+  tools.setScopes('sign_in_with_intuit')
 
   // Constructs the authorization URI.
   var uri = tools.intuitAuth.code.getUri({

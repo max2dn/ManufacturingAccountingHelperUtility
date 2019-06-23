@@ -7,7 +7,7 @@ function openEditModal(){
   modal.style.display = 'block';
 }
 function displayProducts() {
-  var xhr = createCORSRequest('GET', base_url + '/finishedgoods');
+  var xhr = createCORSRequest('GET', base_url + '/api/items/finishedgoods');
   xhr.send();
   var response = JSON.parse(xhr.response);
 
@@ -35,7 +35,7 @@ function displayProducts() {
   }
 }
 function checkNonConfiguredItems(){
-  var xhr = createCORSRequest('GET', base_url + '/nonconfigureditems');
+  var xhr = createCORSRequest('GET', base_url + '/api/items/nonconfigured');
   xhr.send();
   var json_data = JSON.parse(xhr.response);
 
@@ -55,29 +55,29 @@ function checkNonConfiguredItems(){
 
 $(document).ready(function() {
 
-  $('#navigation').load('/modules/navigation_menu.html');
+  $('#navigation').load('/public/modules/navigation_menu.html');
   checkNonConfiguredItems();
 
   displayProducts();
 
   $('#open_form').on('click', function() {
-    $('#new_recipe_form').load('/modules/new_recipe.html', function() {
-      $.getScript('/scripts/new_recipe.js');
+    $('#new_recipe_form').load('/public/modules/new_recipe.html', function() {
+      $.getScript('/public/scripts/new_recipe.js');
       openModal();
     });
   });
 
   $('.edit').on('click', function() {
     window.clicked_item = this.value;
-    $('#edit_recipe_form').load('/modules/edit_recipe_form.html', function() {
-      $.getScript('/scripts/edit_recipe.js');
+    $('#edit_recipe_form').load('/public/modules/edit_recipe_form.html', function() {
+      $.getScript('/public/scripts/edit_recipe.js');
       openEditModal();
     });
   });
 
   $('.delete').on('click', function() {
     if(confirm("Are you sure you want to delete " + this.value + "?")){
-      var xhr = createCORSRequest('DELETE', base_url + '/recipe?product='+this.value);
+      var xhr = createCORSRequest('DELETE', base_url + '/api/recipe?product='+this.value);
       xhr.send();
       location.reload();
     }

@@ -1,6 +1,6 @@
 
-var tools = require('./tools.js');
-var configs = require('./config.js');
+var tools = require('./tools');
+var configs = require('./config');
 var Promise = require('bluebird');
 var QuickBooks = require('node-quickbooks');
 

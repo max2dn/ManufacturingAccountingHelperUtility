@@ -1,8 +1,8 @@
-var mysql_tools = require('./mysql_tools.js');
-var configs = require('./config.js');
-var inventory_tools = require('./inventory_tools.js');
-var qb_tools = require('./quickbooks_tools.js')
-var items = require('./items.js');
+var mysql_tools = require('../util/mysql_tools.js');
+var configs = require('../util/config.js');
+var inventory_tools = require('../util/inventory_tools.js');
+var qb_tools = require('../util/quickbooks_tools.js')
+var items = require('../util/items.js');
 var exports = {};
 
 exports.parseInvoiceSalesReceiptLines = async function(item){

@@ -1,6 +1,6 @@
 var promise_mysql = require('promise-mysql')
 var util = require('util');
-var config = require('./config_file_loader.js').config;
+var config = require('./config_file_loader').config;
 
 var exports = {};
 

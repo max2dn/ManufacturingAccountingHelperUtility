@@ -1,5 +1,5 @@
 function populateIngredientDropdown() {
-  var xhr = createCORSRequest('GET', base_url + '/rawitems');
+  var xhr = createCORSRequest('GET', base_url + '/api/items/raw');
   xhr.send();
   var product_dropdown = document.getElementById("select_ingredient_dropdown");
   var json_data = JSON.parse(xhr.response);
@@ -91,7 +91,7 @@ $(document).ready(function() {
 
   $("#submit_button").click(function(e){
     e.preventDefault();
-    var xhr = createCORSRequest('POST', base_url + '/recipe');
+    var xhr = createCORSRequest('POST', base_url + '/api/recipe');
     xhr.setRequestHeader("Content-Type", "text/plain;");
     xhr.send(getFormData());
   });
@@ -99,7 +99,7 @@ $(document).ready(function() {
   $("#submit_button").click(function(e){
     e.preventDefault();
     var test = displayData();
-    var  = document.getElementById('JSON');
+    var p = document.getElementById('JSON');
     p.innerHTML = test;
   });
 

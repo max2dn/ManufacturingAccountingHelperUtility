@@ -4,7 +4,7 @@ income_accounts = ["4000", "4100"]
 var gross = setupEmptyGrossObject();
 
 $(document).ready(function(){
-    $('#navigation').load('/modules/navigation_menu.html');
+    $('#navigation').load('/public/modules/navigation_menu.html');
 });
 
 function parseGeneralExciseFile(){

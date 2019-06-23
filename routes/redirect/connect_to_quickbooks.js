@@ -1,4 +1,4 @@
-var tools = require('../tools/tools.js')
+var tools = require('../../util/tools')
 var express = require('express')
 var router = express.Router()
 

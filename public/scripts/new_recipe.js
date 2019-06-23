@@ -1,5 +1,5 @@
 function populateIngredientDropdown() {
-  var xhr = createCORSRequest('GET', base_url + '/rawitems');
+  var xhr = createCORSRequest('GET', base_url + '/api/items/raw');
   xhr.send();
   var product_dropdown = document.getElementById("select_ingredient_dropdown");
   var json_data = JSON.parse(xhr.response);
@@ -74,7 +74,7 @@ $('table').on('click', '.delete_button', function() {
 
 $("#submit_button").click(function(event) {
   event.preventDefault();
-  var xhr = createCORSRequest('POST', base_url + '/recipe');
+  var xhr = createCORSRequest('POST', base_url + '/api/recipe');
   xhr.setRequestHeader("Content-Type", "text/plain;");
   var form_data=getFormData();
   if(form_data === null){

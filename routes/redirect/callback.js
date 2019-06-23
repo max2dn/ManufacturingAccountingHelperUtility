@@ -1,10 +1,10 @@
-var tools = require('../tools/tools.js')
-var jwt = require('../tools/jwt.js')
+var tools = require('../../util/tools')
+var jwt = require('../../util/jwt')
 var https = require('https')
 var express = require('express')
 var router = express.Router()
 var url = require('url')
-var qb_tools = require('../tools/quickbooks_tools.js')
+var qb_tools = require('../../util/quickbooks_tools')
 
 /** /callback **/
 router.get('/', function (req, res) {
@@ -33,16 +33,14 @@ router.get('/', function (req, res) {
       try {
         // We should decode and validate the ID token
         jwt.validate(token.data.id_token, function() {
-          // Callback function - redirect to /connected
           req.session.user = "maxenchung"
-          res.redirect('/homepage')
+          res.redirect('/')
         }, errorFn)
       } catch (e) {
         errorFn(e)
       }
     } else {
-      // Redirect to /connected
-      res.redirect('/successful_connection')
+      res.redirect('/')
     }
   }, function (err) {
     console.log(err)
